@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Social Cart | Event Cart Rentals</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#242424;background:#f7f3ed;line-height:1.6}
+nav{position:sticky;top:0;background:#fff;z-index:10;padding:16px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
+.logo{font-weight:800;letter-spacing:1px}
+nav a{margin-left:20px;text-decoration:none;color:#222;font-weight:600}
+.hero{text-align:center;padding:90px 20px;background:#e9dfd1}
+.hero h1{font-size:52px;margin:0 0 10px;letter-spacing:2px}
+.hero p{font-size:20px;margin:8px 0}
+.btn{display:inline-block;margin-top:22px;background:#222;color:#fff;padding:14px 25px;border-radius:5px;text-decoration:none;font-weight:bold}
+section{max-width:1050px;margin:auto;padding:70px 20px}
+h2{text-align:center;font-size:34px;margin-bottom:35px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#fff;padding:25px;border-radius:10px;border:1px solid #ddd}
+.price{text-align:center;font-size:40px;font-weight:800}
+.center{text-align:center}
+form{max-width:650px;margin:auto;background:#fff;padding:30px;border-radius:12px;border:1px solid #ddd}
+input,select,textarea{width:100%;padding:13px;margin:7px 0 17px;border:1px solid #bbb;border-radius:5px;font-size:16px}
+textarea{min-height:120px}
+button{background:#222;color:#fff;border:0;padding:14px 25px;border-radius:5px;font-size:16px;font-weight:bold;cursor:pointer;width:100%}
+.stars{font-size:25px;letter-spacing:4px}
+.review{background:#fff;padding:22px;border-radius:10px;border:1px solid #ddd;margin-bottom:15px}
+.review strong{display:block}
+footer{text-align:center;padding:35px;background:#222;color:#fff}
+@media(max-width:650px){
+.hero h1{font-size:38px}
+nav{flex-direction:column;gap:12px}
+nav a{margin:0 7px;font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">THE SOCIAL CART</div>
+<div>
+<a href="#about">About</a>
+<a href="#rental">Rental</a>
+<a href="#reviews">Reviews</a>
+<a href="#book">Book</a>
+</div>
+</nav>
+
+<header class="hero">
+<h1>THE SOCIAL CART</h1>
+<p>And level up your event.</p>
+<p>Stylish • Functional • Unforgettable</p>
+<a class="btn" href="#book">REQUEST TO BOOK</a>
+</header>
+
+<section id="about">
+<h2>Make Your Event More Fun</h2>
+<p class="center">
+Our wooden event cart is the perfect way to create a beautiful snack,
+dessert, beverage or party-favor station.
+</p>
+
+<div class="cards">
+<div class="card">
+<h3>Birthdays</h3>
+<p>Create a fun snack or candy station your guests will love.</p>
+</div>
+
+<div class="card">
+<h3>Baby & Bridal Showers</h3>
+<p>Add a stylish display for desserts, drinks or favors.</p>
+</div>
+
+<div class="card">
+<h3>Weddings & Quinceañeras</h3>
+<p>A beautiful addition to your reception or celebration.</p>
+</div>
+
+<div class="card">
+<h3>Graduations & Parties</h3>
+<p>Perfect for chips, candy, drinks, desserts and more.</p>
+</div>
+</div>
+</section>
+
+<section id="rental">
+<h2>Cart Rental</h2>
+
+<div class="card center">
+<div class="price">$150</div>
+<p><strong>1-day rental</strong></p>
+<p>Empty cart rental — you provide the snacks, drinks and decorations.</p>
+<p>Delivery available for an additional fee.</p>
+<p><strong>Located in Oxnard, CA • Serving Ventura County</strong></p>
+</div>
+
+<div class="cards" style="margin-top:25px">
+<div class="card">
+<h3>What's Included</h3>
+<ul>
+<li>Wooden event cart</li>
+<li>Letter board sign</li>
+<li>Serving/display trays</li>
+<li>1-day rental</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Important</h3>
+<p>No kitchen appliances or heat-producing equipment may be placed on or inside the cart.</p>
+<p>No painting, drilling, nailing, stapling or permanent alterations.</p>
+</div>
+</div>
+</section>
+
+<section id="reviews">
+<h2>What Our Clients Say</h2>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+<strong>Be the first to leave a review!</strong>
+<p>After your event, we'd love to hear about your experience.</p>
+</div>
+
+<h2 style="font-size:25px;margin-top:45px">Leave a Review</h2>
+
+<form action="mailto:thesocialcart805@gmail.com" method="post" enctype="text/plain">
+<label>Your Name</label>
+<input type="text" name="Name" required>
+
+<label>Event Type</label>
+<select name="Event Type">
+<option>Birthday</option>
+<option>Baby Shower</option>
+<option>Bridal Shower</option>
+<option>Wedding</option>
+<option>Quinceañera</option>
+<option>Graduation</option>
+<option>Corporate Event</option>
+<option>Other</option>
+</select>
+
+<label>Rating</label>
+<select name="Rating">
+<option>★★★★★ - 5 Stars</option>
+<option>★★★★☆ - 4 Stars</option>
+<option>★★★☆☆ - 3 Stars</option>
+<option>★★☆☆☆ - 2 Stars</option>
+<option>★☆☆☆☆ - 1 Star</option>
+</select>
+
+<label>Your Review</label>
+<textarea name="Review" placeholder="Tell us about your experience..." required></textarea>
+
+<button type="submit">SUBMIT REVIEW</button>
+</form>
+</section>
+
+<section id="book">
+<h2>Request to Book</h2>
+
+<p class="center">
+Tell us about your event and we'll contact you with availability and pricing.
+</p>
+
+<form action="mailto:thesocialcart805@gmail.com" method="post" enctype="text/plain">
+
+<label>Name</label>
+<input type="text" name="Name" required>
+
+<label>Phone</label>
+<input type="tel" name="Phone" required>
+
+<label>Email</label>
+<input type="email" name="Email" required>
+
+<label>Event Date</label>
+<input type="date" name="Event Date" required>
+
+<label>Event Type</label>
+<select name="Event Type">
+<option>Birthday</option>
+<option>Baby Shower</option>
+<option>Bridal Shower</option>
+<option>Wedding</option>
+<option>Quinceañera</option>
+<option>Graduation</option>
+<option>Corporate Event</option>
+<option>Other</option>
+</select>
+
+<label>Event Location</label>
+<input type="text" name="Event Location" placeholder="City, CA" required>
+
+<label>Number of Guests</label>
+<input type="number" name="Guests">
+
+<label>Additional Details</label>
+<textarea name="Details" placeholder="Tell us anything else about your event..."></textarea>
+
+<button type="submit">REQUEST TO BOOK</button>
+</form>
+</section>
+
+<section>
+<h2>FAQ</h2>
+
+<div class="cards">
+<div class="card">
+<h3>How much is the rental?</h3>
+<p>The cart rental is $150 for one day. Delivery is additional.</p>
+</div>
+
+<div class="card">
+<h3>Do you provide the food?</h3>
+<p>No. The rental is for the empty cart. You provide your own food, drinks and decorations.</p>
+</div>
+
+<div class="card">
+<h3>Where do you deliver?</h3>
+<p>We are based in Oxnard and serve Ventura County and surrounding areas.</p>
+</div>
+
+<div class="card">
+<h3>How do I reserve the cart?</h3>
+<p>Submit the booking request above. We'll contact you to confirm availability and details.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<strong>THE SOCIAL CART</strong>
+<p>Event Cart Rentals • Ventura County</p>
+<p>thesocialcart805@gmail.com</p>
+</footer>
+
+</body>
+</html>
