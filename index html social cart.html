@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Social Cart — Snack Cart Rentals, Ventura County</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Caveat:wght@600&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FFFFFF;
+    --surface: #F8F5EF;
+    --cream: #FFFFFF;
+    --cream-card: #FFFFFF;
+    --ink: #2B241C;
+    --wood: #C89A6A;
+    --wood-deep: #8A5A28;
+    --sage: #56643F;
+    --sage-tint: #EEF1E7;
+    --line: rgba(43,36,28,0.14);
+    --radius: 4px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.55;
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  a{ color: inherit; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 0;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color: var(--ink);
+  }
+  .brand img{
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .brand-name{
+    font-family:'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+  nav.links{
+    display:flex;
+    gap: 28px;
+    font-size: 0.95rem;
+  }
+  nav.links a{ text-decoration:none; }
+  nav.links a:hover{ color: var(--wood-deep); }
+  .nav-cta{
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    text-decoration:none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .nav-cta:hover{ background: var(--wood-deep); }
+  .menu-toggle{ display:none; }
+
+  @media (max-width: 760px){
+    nav.links{ display:none; }
+    .menu-toggle{
+      display:inline-flex;
+      background:none;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--ink);
+    }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding: 64px 0 72px;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 48px;
+    align-items:center;
+  }
+  .eyebrow-script{
+    font-family:'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--wood-deep);
+    display:block;
+    margin-bottom: 6px;
+  }
+  h1.hero-title{
+    font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+    line-height: 1.08;
+  }
+  .hero-sub{
+    margin-top: 18px;
+    font-size: 1.08rem;
+    max-width: 46ch;
+    color: #45403A;
+  }
+  .hero-actions{
+    margin-top: 30px;
+    display:flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items:center;
+  }
+  .btn-primary{
+    background: var(--ink);
+    color: var(--cream);
+    text-decoration:none;
+    padding: 14px 26px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 0.98rem;
+    display:inline-block;
+  }
+  .btn-primary:hover{ background: var(--wood-deep); }
+  .btn-ghost{
+    text-decoration:none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    font-weight: 600;
+    font-size: 0.98rem;
+  }
+  .hero-image{
+    border-radius: 50%;
+    overflow:hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 18px 40px rgba(33,29,24,0.14);
+  }
+
+  @media (max-width: 760px){
+    .hero-grid{ grid-template-columns: 1fr; }
+    .hero-image{ max-width: 320px; margin: 0 auto; order:-1; }
+  }
+
+  /* ---------- Occasions strip ---------- */
+  .occasions{
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 26px 0;
+  }
+  .occasions ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    text-align:center;
+  }
+  .occasions li{
+    flex: 1 1 120px;
+    padding: 0 10px;
+    border-left: 1px solid var(--line);
+    font-size: 0.88rem;
+    font-weight: 600;
+  }
+  .occasions li:first-child{ border-left: none; }
+  .occasions svg{
+    display:block;
+    margin: 0 auto 8px;
+    width: 26px;
+    height: 26px;
+    stroke: var(--ink);
+    fill:none;
+    stroke-width: 1.4;
+  }
+  @media (max-width: 640px){
+    .occasions li{ border-left:none; flex-basis: 45%; }
+  }
+
+  /* ---------- Menu board section ---------- */
+  .board-section{
+    background: var(--surface);
+    color: var(--ink);
+    padding: 76px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .board-head{
+    max-width: 60ch;
+  }
+  .board-head span.tag{
+    font-family:'Caveat', cursive;
+    color: var(--wood-deep);
+    font-size: 1.4rem;
+  }
+  .board-head h2{
+    color: var(--ink);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-top: 4px;
+  }
+  .board-head p{
+    margin-top: 14px;
+    color: #4A4438;
+    max-width: 52ch;
+  }
+  .board{
+    margin-top: 42px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 32px;
+    background: #FFFFFF;
+  }
+  .board ul{
+    list-style:none;
+    margin:0; padding:0;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 40px;
+  }
+  .board li{
+    font-family:'Fraunces', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    border-bottom: 1px dashed var(--line);
+    padding-bottom: 12px;
+  }
+  .board li small{
+    display:block;
+    font-family:'Work Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #6B6558;
+    margin-top: 4px;
+  }
+  .board-note{
+    margin-top: 22px;
+    font-size: 0.88rem;
+    color: #6B6558;
+  }
+  @media (max-width: 600px){
+    .board ul{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing{
+    padding: 76px 0;
+  }
+  .pricing-head{ max-width: 56ch; }
+  .pricing-head h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .stat-row{
+    margin-top: 44px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .stat{
+    border-top: 3px solid var(--wood);
+    padding-top: 16px;
+  }
+  .stat .num{
+    font-family:'Fraunces', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height:1;
+  }
+  .stat .label{
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #45403A;
+    max-width: 26ch;
+  }
+  @media (max-width: 700px){
+    .stat-row{ grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  /* ---------- Disclosure ---------- */
+  .disclosure{
+    padding: 0 0 76px;
+  }
+  .disclosure-box{
+    background: var(--sage-tint);
+    border: 1px solid rgba(110,123,93,0.35);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+    display:grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items:start;
+  }
+  .disclosure-box svg{
+    width: 30px; height:30px;
+    stroke: var(--sage);
+    fill:none;
+    stroke-width: 1.5;
+    margin-top: 2px;
+  }
+  .disclosure-box h3{
+    font-size: 1.25rem;
+  }
+  .disclosure-box ul{
+    margin: 14px 0 0;
+    padding-left: 20px;
+  }
+  .disclosure-box li{ margin-bottom: 8px; }
+  @media (max-width: 600px){
+    .disclosure-box{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Form ---------- */
+  .booking{
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    padding: 80px 0 90px;
+  }
+  .booking-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+  }
+  .booking-copy h2{ font-size: clamp(1.7rem, 3vw, 2.3rem); }
+  .booking-copy p{ margin-top: 16px; color:#45403A; max-width: 40ch; }
+  .booking-copy .area{
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+
+  form{
+    display:grid;
+    gap: 16px;
+  }
+  .field-row{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  label{
+    font-size: 0.82rem;
+    font-weight: 600;
+    display:block;
+    margin-bottom: 6px;
+  }
+  input, select, textarea{
+    width:100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--ink);
+  }
+  input:focus, select:focus, textarea:focus{
+    outline: 2px solid var(--wood-deep);
+    outline-offset: 1px;
+  }
+  textarea{ resize: vertical; min-height: 90px; }
+  .submit-btn{
+    justify-self:start;
+    margin-top: 6px;
+    background: var(--ink);
+    color: var(--cream);
+    border:none;
+    padding: 15px 30px;
+    border-radius: var(--radius);
+    font-weight:600;
+    font-size:0.98rem;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .submit-btn:hover{ background: var(--wood-deep); }
+  .form-note{
+    font-size: 0.8rem;
+    color: #6B665D;
+  }
+  .form-status{
+    font-size: 0.9rem;
+    font-weight:600;
+    display:none;
+  }
+  .form-status.show{ display:block; }
+  .form-status.ok{ color: var(--sage); }
+  .form-status.err{ color: #A9432E; }
+
+  @media (max-width: 780px){
+    .booking-grid{ grid-template-columns: 1fr; }
+    .field-row{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background: var(--bg);
+    color: #4A4438;
+    padding: 46px 0 30px;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--line);
+  }
+  .footer-grid{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap: 20px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-grid strong{ color: var(--ink); font-family:'Fraunces', serif; font-size: 1.05rem; }
+  footer .bottom{
+    margin-top: 20px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <img src="social-cart-logo.png" alt="The Social Cart logo">
+      <span class="brand-name">The Social Cart</span>
+    </a>
+    <nav class="links">
+      <a href="#included">What's included</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#good-to-know">Good to know</a>
+      <a href="#book" class="nav-cta">Check availability</a>
+    </nav>
+    <a href="#book" class="menu-toggle">Book</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow-script">Stylish. Functional. Unforgettable.</span>
+        <h1 class="hero-title">The cart that makes any spread look like a party.</h1>
+        <p class="hero-sub">The Social Cart is a rustic wooden snack cart, delivered and set up at your birthday, quinceañera, wedding, or company event — you style it and fill it however you like, anywhere in Ventura County.</p>
+        <div class="hero-actions">
+          <a href="#book" class="btn-primary">Check availability</a>
+          <a href="#pricing" class="btn-ghost">See pricing</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="social-cart-logo.png" alt="The Social Cart wooden snack cart">
+      </div>
+    </div>
+  </section>
+
+  <!-- OCCASIONS -->
+  <section class="occasions">
+    <div class="wrap">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5"/><path d="M10 20c0-3 2.5-5 6-5s6 2 6 5"/></svg>
+          Birthdays
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M12 2l1.5 4.5H18l-3.6 2.8L15.8 14 12 11.2 8.2 14l1.4-4.7L6 6.5h4.5z"/></svg>
+          Quinceañeras
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><path d="M7 3v6a5 5 0 0010 0V3"/><path d="M12 14v7"/><path d="M8 21h8"/></svg>
+          Weddings
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="1"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+          Corporate events
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+          &amp; more
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="board-section" id="included">
+    <div class="wrap">
+      <div class="board-head">
+        <span class="tag">How it works</span>
+        <h2>You bring the snacks. We bring the cart.</h2>
+        <p>The Social Cart is a dry rental — the styled wooden cart itself, with tin serving trays built in. Delivery, setup, and pickup are on us; the food, drinks, and serving are on you.</p>
+      </div>
+      <div class="board">
+        <ul>
+          <li>Included<small>The cart, delivery, setup &amp; pickup, letter board for a custom sign</small></li>
+          <li>Not included<small>Food, drinks, ice, serving staff, and decor beyond the cart</small></li>
+        </ul>
+      </div>
+      <p class="board-note">Want help planning what goes on it? Mention that in your request and we'll point you in the right direction.</p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="pricing-head">
+        <h2>Simple, upfront pricing.</h2>
+      </div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="num">$150</div>
+          <div class="label">Base rental fee for the cart and setup</div>
+        </div>
+        <div class="stat">
+          <div class="num">$25+</div>
+          <div class="label">Travel fee, starting price, based on your distance from base</div>
+        </div>
+        <div class="stat">
+          <div class="num">Ventura&nbsp;Co.</div>
+          <div class="label">Currently serving all of Ventura County</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCLOSURE -->
+  <section class="disclosure" id="good-to-know">
+    <div class="wrap">
+      <div class="disclosure-box">
+        <svg viewBox="0 0 24 24"><path d="M12 9v4"/><path d="M12 16.5h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        <div>
+          <h3>Good to know before you book</h3>
+          <ul>
+            <li>This is a cart rental, not a catering service — food, drinks, ice, and serving are up to you.</li>
+            <li>No appliances, open flames, propane, or hot/heated items are allowed on the cart. It's built for cold and room-temperature snacks only.</li>
+            <li>Please let us know your venue's setup restrictions (indoor/outdoor, power access, stairs) when you request your quote.</li>
+            <li>A confirmed booking requires your event date, location, and headcount.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING FORM -->
+  <section class="booking" id="book">
+    <div class="wrap booking-grid">
+      <div class="booking-copy">
+        <h2>Tell us about your event.</h2>
+        <p>Share a few details below and we'll follow up with availability and a quote for your date.</p>
+        <div class="area">
+          <strong>Service area:</strong> Ventura County<br>
+          <strong>Base fee:</strong> $150 &nbsp;·&nbsp; <strong>Travel:</strong> from $25
+        </div>
+      </div>
+
+      <form id="bookingForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="field-row">
+          <div>
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="field-row">
+          <div>
+            <label for="event-date">Event date</label>
+            <input type="date" id="event-date" name="event_date" required>
+          </div>
+          <div>
+            <label for="event-type">Event type</label>
+            <select id="event-type" name="event_type" required>
+              <option value="" disabled selected>Select one</option>
+              <option>Birthday</option>
+              <option>Quinceañera</option>
+              <option>Wedding</option>
+              <option>Baby shower</option>
+              <option>Corporate event</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div>
+            <label for="location">City / venue</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Oxnard, CA" required>
+          </div>
+          <div>
+            <label for="guests">Estimated guests</label>
+            <input type="number" id="guests" name="guests" min="1">
+          </div>
+        </div>
+
+        <div>
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" name="message" placeholder="Indoor/outdoor, theme, dietary requests..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send request</button>
+        <p class="form-status" id="formStatus"></p>
+        <p class="form-note">We'll reply by email or phone to confirm availability and send your quote.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <strong>The Social Cart</strong><br>
+        Snack cart rentals for parties, weddings, and events across Ventura County.
+      </div>
+      <div>
+        Base fee $150 · Travel from $25<br>
+        Cold snacks only — no appliances or hot items
+      </div>
+    </div>
+    <div class="bottom">
+      <span>&copy; <span id="year"></span> The Social Cart</span>
+      <span>No pare, la fiesta sigue.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const form = document.getElementById('bookingForm');
+  const status = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async function(e){
+    // If the Formspree endpoint hasn't been configured yet, fall back to a mailto draft
+    // so no lead is ever lost. Replace YOUR_FORM_ID above once Formspree is set up.
+    if(form.action.includes('YOUR_FORM_ID')){
+      e.preventDefault();
+      const data = new FormData(form);
+      const body = [
+        'Name: ' + data.get('name'),
+        'Phone: ' + data.get('phone'),
+        'Email: ' + data.get('email'),
+        'Event date: ' + data.get('event_date'),
+        'Event type: ' + data.get('event_type'),
+        'City/venue: ' + data.get('location'),
+        'Estimated guests: ' + data.get('guests'),
+        'Message: ' + data.get('message')
+      ].join('%0D%0A');
+      window.location.href = 'mailto:youremail@example.com?subject=Social%20Cart%20Booking%20Request&body=' + body;
+      status.textContent = 'Opening your email app to send the request…';
+      status.className = 'form-status show ok';
+      return;
+    }
+
+    e.preventDefault();
+    try{
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(res.ok){
+        status.textContent = "Got it! We'll be in touch shortly.";
+        status.className = 'form-status show ok';
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong — please try again or call/text us directly.";
+        status.className = 'form-status show err';
+      }
+    } catch(err){
+      status.textContent = "Something went wrong — please try again or call/text us directly.";
+      status.className = 'form-status show err';
+    }
+  });
+</script>
+
+</body>
+</html>
